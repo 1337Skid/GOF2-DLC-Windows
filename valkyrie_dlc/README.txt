@@ -1,0 +1,1 @@
+Extract the data archive into your main game directory to get the valkyrie assets, if you don't do that your game will mostly crash at mission 3 on valkyrie + textures will be f up and dialogs will be very fast cause no sounds

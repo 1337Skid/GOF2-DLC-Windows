@@ -1,6 +1,7 @@
 -- I could make an item table where I store the new items ids in so it doesn't conflicts with mods that also made an item and are loaded firstly but if we save the game your items will be swapped with the first mod loaded so just keep this mod name "00_"
 local agentsinfo = require("agentsinfo")
 local itemsinfo = require("itemsinfo")
+local imagesinfo = require("imagesinfo")
 
 RegisterEvent("EarlyInit", function()
 	item:Create('M6 A4 "Raccoon"', "The M6 A4 is the most powerful laser beam in the entire galaxy. If you've mounted several of these lethal devices to your ship, you will be able to pulverize your enemies before they are even close enough to open fire on you. In most cases, a single shot of the M6 A4 is all it takes to turn your target into space dust.", itemsinfo.raccoon); -- // todo: use asset:gettext() but i need to make an item:edit() function on the modding api lol
@@ -20,12 +21,12 @@ RegisterEvent("OnSystemChanged", function(id)
 		agentsinfo.selling_talking["item_selling"] = rdmitem;
 		if rdmitem == 196 then agentsinfo.selling_talking["item_price"] = 1067000 end;
 		if rdmitem == 197 then agentsinfo.selling_talking["item_price"] = 720000 end;
-		station:CreateAgent("Longwei Zhou",  0, -1, 0, 0, 0, 0, agentsinfo.basic_talking); -- name, factiontype, isterranwoman, hair, eyes, mouth, armor, agentinfo 
-		station:CreateAgent("Nemor Kalant",  2, -1, 0, 0, 0, 0, agentsinfo.basic_talking);
-		station:CreateAgent("Tedanor",       7, -1, 0, 0, 0, 0, agentsinfo.basic_talking);
-		station:CreateAgent("Jelka Lithgow", 0,  1, 0, 0, 0, 0, agentsinfo.basic_talking);
-		station:CreateAgent("Jakk Zoboon",   6, -1, 1, 0, 0, 0, agentsinfo.selling_talking);
-		station:CreateAgent("Unmar Zoboon",  6, -1, 0, 0, 0, 0, agentsinfo.basic_talking);
+		station:CreateAgent("Longwei Zhou",  0, -1, imagesinfo.placeholder, agentsinfo.basic_talking); -- name, factiontype, isterranwoman, imageinfo, agentinfo 
+		station:CreateAgent("Nemor Kalant",  2, -1, imagesinfo.placeholder, agentsinfo.basic_talking);
+		station:CreateAgent("Tedanor",       7, -1, imagesinfo.placeholder, agentsinfo.basic_talking);
+		station:CreateAgent("Jelka Lithgow", 0,  1, imagesinfo.placeholder, agentsinfo.basic_talking);
+		station:CreateAgent("Jakk Zoboon",   6, -1, imagesinfo.jakkzoboon,  agentsinfo.selling_talking);
+		station:CreateAgent("Unmar Zoboon",  6, -1, imagesinfo.placeholder, agentsinfo.basic_talking);
 	end
 end)
 
